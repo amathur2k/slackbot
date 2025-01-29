@@ -13,7 +13,6 @@ from langchain.schema.document import Document
 
 embeddings = OpenAIEmbeddings()
 
-os.environ["PINECONE_API_KEY"] = "pcsk_2MpYP6_DX2FpKzg2H4qbbykjkCB3pL6c5jQtGRhekVy3pQGpgcfTJ5zkgcVce5mW2TQeDK"
 os.environ["PINECONE_ENV"] = "us-east-1"  
 os.environ["PINECONE_INDEX"] = "test-index"
 
