@@ -12,7 +12,7 @@ from slack_sdk.socket_mode.request import SocketModeRequest
 from slack_sdk.socket_mode.response import SocketModeResponse
 
 os.environ["PINECONE_ENV"] = "us-east-1"  
-os.environ["PINECONE_INDEX"] = "second-index"
+os.environ["PINECONE_INDEX"] = "fourth-index"
 
 
 
@@ -42,8 +42,8 @@ class SlackRAG:
 
 Question: {question}
 
-Please answer the question based only on the provided Slack messages. 
-Include citations to specific messages you used in your answer.
+Please answer the question based only on the provided Slack messages. Do not take into account any messages by or adressed to the user : U08BHCTUF7S 
+Include a section on citations at the end of your answer, clearly highlighting the message sender and content you used.
 If the information isn't available in the messages, please say so.
 """
         )
@@ -67,7 +67,7 @@ If the information isn't available in the messages, please say so.
         # Retrieve relevant documents
         docs = self.vectorstore.similarity_search(
             question,
-            k=4  # Retrieve top 4 most relevant messages
+            k=5  # Retrieve top 4 most relevant messages
         )
 
         if not docs:
